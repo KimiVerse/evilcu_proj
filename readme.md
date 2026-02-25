@@ -1,26 +1,26 @@
 # 🚀 AmirTunnel Pro Auto Installer (v1.0.0)
 
+[![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-blue.svg?logo=telegram)](https://t.me/Evilcu)
 ![Shell Script](https://img.shields.io/badge/Language-Shell_Script-green?style=for-the-badge&logo=gnu-bash)
 ![Linux](https://img.shields.io/badge/OS-Linux-blue?style=for-the-badge&logo=linux)
-![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Globe%20Showing%20Europe-Africa.png" alt="Globe" width="100" />
+<p align="center" style="font-size: 80px; margin-top: 20px;">
+  🌐
 </p>
 
 <p align="center">
-  <strong>اسکریپت مدیریت جامع و هوشمند امیر تانل (AmirTunnel Pro)</strong>
+  <strong>اسکریپت نصب و مدیریت جامع امیر تانل (AmirTunnel Pro)</strong>
   <br>
-  نصب، پیکربندی، مانیتورینگ خودکار تنها با یک دستور.
+  نصب، پیکربندی، مانیتورینگ و ایجاد دسترسی سریع تنها با یک دستور.
 </p>
 
 ---
 
 ## ✨ ویژگی‌ها (Features)
 
-- ⚡ **دسترسی سریع خودکار (Auto Shortcut):** پس از اولین نصب، دستور `amirtunnel` به صورت خودکار به سیستم شما اضافه می‌شود.
-- 🗑 **حذف عمیق (Deep Uninstall):** پاکسازی کامل سرویس‌ها، فایل‌های اجرایی و میانبرها با یک کلیک.
-- 🖥 **رابط کاربری هوشمند:** منوی رنگی، نوار پیشرفت (Loading Bar) و تشخیص خطا.
+- ⚡ **دسترسی سریع خودکار (Auto Shortcut):** پس از نصب، دستور `amirtunnel` به صورت خودکار فعال می‌شود.
+- 🗑 **حذف عمیق (Deep Uninstall):** پاکسازی کامل سرویس‌ها و فایل‌ها با یک گزینه.
+- 🖥 **رابط کاربری هوشمند:** منوی رنگی، نوار پیشرفت و تشخیص خطا.
 - 🛡 **پایداری:** اجرای سرویس به صورت `Systemd` (اجرای خودکار پس از ریبوت).
 - 🚀 **شتاب‌دهنده:** امکان فعال‌سازی `TCP BBR` جهت بهبود کیفیت شبکه.
 
@@ -74,14 +74,15 @@ amirtunnel
 5. سیستم کاملاً پاکسازی می‌شود.
 
 ---
+## 📢 سازنده و منبع (Credits)
 
-## 🔗 اعتبارات (Credits)
+هسته اصلی این تانل و باینری‌ها توسط کانال **Evilcu** توسعه داده شده است. این اسکریپت صرفاً یک نصب‌کننده خودکار (Installer) برای تسهیل استفاده از این ابزار قدرتمند است.
 
-- **Core Binary:** [Evilcu Telegram Channel](http://t.me/Evilcu)
-- **Installer Script:** Open Source Community Version.
+<a href="https://t.me/Evilcu">
+  <img src="https://img.shields.io/badge/Join_Telegram_Channel-Evilcu-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Evilcu Telegram">
+</a>
 
 ---
 
 <p align="center">
-  Made with ❤️ for Freedom
-</p>
+  Made 
