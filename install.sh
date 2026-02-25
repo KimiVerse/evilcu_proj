@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # ===================================================
-#   AmirTunnel Pro Installer - Ultimate Version
+#   AmirTunnel Pro Installer - Official Release
 #   Created for Community
 # ===================================================
 
 # --- Configuration ---
 VERSION="1.0.0"
-GITHUB_USER="KimiVerse"
-GITHUB_REPO="evilcu_proj"
+GITHUB_USER="KimiVerse"     # <-- نام کاربری گیت‌هاب خود را چک کنید
+GITHUB_REPO="evilcu_proj"   # <-- نام ریپازیتوری خود را چک کنید
 BRANCH="main"
 SCRIPT_URL="https://raw.githubusercontent.com/$GITHUB_USER/$GITHUB_REPO/$BRANCH/install.sh"
 
@@ -76,9 +76,15 @@ download_core() {
         chmod +x "$BIN_PATH"
         echo -e "${GREEN}[✔] Core installed successfully.${NC}"
     else
-        echo -e "${RED}[✘] Download failed!${NC}"
+        echo -e "${RED}[✘] Download failed! Check internet.${NC}"
         exit 1
     fi
+}
+
+create_shortcut() {
+    # Silently create shortcut
+    wget -q -O "$SHORTCUT_PATH" "$SCRIPT_URL"
+    chmod +x "$SHORTCUT_PATH"
 }
 
 setup_service() {
@@ -86,25 +92,22 @@ setup_service() {
     systemctl daemon-reload
     systemctl enable AmirTunnel.bin.service >/dev/null 2>&1
     systemctl restart AmirTunnel.bin.service
+    
+    # Auto Create Shortcut here
+    create_shortcut
+    
     loading_bar 1
-    echo -e "${GREEN}[✔] Service Started!${NC}"
-    read -p "Press Enter to return..."
+    echo ""
+    echo -e "${GREEN}${BOLD}[✔] Service Installed & Started Successfully!${NC}"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo -e "${YELLOW} NOTE: From now on, you can open this menu by typing:${NC}"
+    echo -e "${CYAN}${BOLD}       amirtunnel${NC}"
+    echo -e "${YELLOW}--------------------------------------------------${NC}"
+    echo ""
+    read -p "Press Enter to return to menu..."
 }
 
 # --- Actions ---
-
-create_shortcut() {
-    echo -e "${CYAN}[+] Creating 'amirtunnel' shortcut...${NC}"
-    # Download the script itself to /usr/local/bin
-    if wget -q -O "$SHORTCUT_PATH" "$SCRIPT_URL"; then
-        chmod +x "$SHORTCUT_PATH"
-        echo -e "${GREEN}[✔] Shortcut created successfully!${NC}"
-        echo -e "${YELLOW}[!] From now on, just type '${BOLD}amirtunnel${NC}${YELLOW}' to open this menu.${NC}"
-    else
-        echo -e "${RED}[✘] Failed to download script from GitHub.${NC}"
-    fi
-    sleep 3
-}
 
 install_kharej() {
     install_deps
@@ -192,7 +195,7 @@ enable_bbr() {
 }
 
 uninstall() {
-    echo -e "${RED}${BOLD}[!] DANGER: This will remove AmirTunnel & Shortcuts.${NC}"
+    echo -e "${RED}${BOLD}[!] DANGER: This will remove AmirTunnel Completely.${NC}"
     read -p "Are you sure? (y/n): " confirm
     if [[ "$confirm" =~ ^[Yy]$ ]]; then
         echo -e "${YELLOW}Stopping services...${NC}"
@@ -205,7 +208,8 @@ uninstall() {
         rm -f $SHORTCUT_PATH
         
         systemctl daemon-reload
-        echo -e "${GREEN}[✔] Uninstallation complete.${NC}"
+        echo -e "${GREEN}[✔] Uninstalled Successfully.${NC}"
+        exit 0
     else
         echo -e "${YELLOW}Cancelled.${NC}"
     fi
@@ -225,11 +229,10 @@ main_menu() {
         echo -e "${CYAN} 5) ${NC} Check Status"
         echo -e "${CYAN} 6) ${NC} Live Logs"
         echo -e "${CYAN} 7) ${NC} Edit Config"
-        draw_line
         echo -e "${PURPLE} 8) ${NC} Enable BBR"
-        echo -e "${PURPLE} 9) ${NC} Create Shortcut command ('amirtunnel')"
-        echo -e "${RED} 0) ${NC} Uninstall Completely"
-        echo -e "${RED} q) ${NC} Exit Menu"
+        draw_line
+        echo -e "${RED} 9) ${NC} Uninstall Completely"
+        echo -e "${RED} 0) ${NC} Exit"
         echo ""
         read -p "Select Option: " choice
 
@@ -242,9 +245,8 @@ main_menu() {
             6) journalctl -u AmirTunnel.bin.service -f -n 50 ;;
             7) nano $SERVICE_PATH && systemctl daemon-reload && systemctl restart AmirTunnel.bin.service ;;
             8) enable_bbr ;;
-            9) create_shortcut ;;
-            0) uninstall ;;
-            q) exit 0 ;;
+            9) uninstall ;;
+            0) exit 0 ;;
             *) echo -e "${RED}Invalid!${NC}"; sleep 1 ;;
         esac
     done
