@@ -85,4 +85,5 @@ amirtunnel
 ---
 
 <p align="center">
-  Made 
+  Made with ❤️ for Freedom
+</p>
