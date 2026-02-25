@@ -35,10 +35,8 @@
 برای نصب، تنها کافیست دستور زیر را در ترمینال سرور خود (هم ایران و هم خارج) کپی و اجرا کنید:
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/KimiVerse/evilcu_proj/main/install.sh)
 ```
-
-> ⚠️ **نکته:** به جای `USERNAME` و `REPOSITORY` نام کاربری و نام ریپازیتوری گیت‌هاب خود را قرار دهید.
 
 ---
 
